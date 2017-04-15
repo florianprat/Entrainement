@@ -9,7 +9,7 @@ namespace PGCD
     class Program
     {
         //
-        // Ce programme permet de calculer le plus grand dénominateur commun (PGCD) de deux nombres entiers non nuls
+        // Ce programme permet de calculer le plus grand dénominateur commun (PGCD) de deux nombres entiers non nuls.
         //
 
         static void Main(string[] args)
@@ -64,7 +64,7 @@ namespace PGCD
 
                 Console.Clear();
             }
-            while (touche.Key != ConsoleKey.Escape);        // La touche Echap permet de sortir du programme
+            while (touche.Key != ConsoleKey.Escape);        // La touche Echap permet de sortir du programme.
         }
 
         // Vérification de la validité de la saisie des nombres
