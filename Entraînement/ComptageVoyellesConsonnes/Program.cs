@@ -16,10 +16,14 @@ namespace ComptageVoyellesConsonnes
         {
             int nbVoyelles, nbConsonnes;    // Nombres de voyelles et de consonnes
 
+            // Saisie d'un mot (on ne fait pas de vérification de la saisie)
             Console.WriteLine("Veuillez saisir un mot :");
-            string motSaisi = Console.ReadLine().ToLower();
+            string motSaisi = Console.ReadLine().ToLower();     // On met le mot en minuscule
+
+            // Comptage
             CompterVoyellesConsonnes(motSaisi, out nbVoyelles, out nbConsonnes);
 
+            // On distingue dans l'affichage les cas singulier/pluriel des mots "voyelle(s)" et "consonne(s)"
             Console.WriteLine("\n\"{0}\" comprend {1} {2} et {3} {4}.", motSaisi,
                 nbVoyelles, nbVoyelles > 1 ? "voyelles" : "voyelle",
                 nbConsonnes, nbConsonnes > 1 ? "consonnes" : "consonne");
@@ -33,8 +37,13 @@ namespace ComptageVoyellesConsonnes
         {
             nbVoy = 0;
             char[] voyelle = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };   // Création d'un tableau contenant les voyelles de l'alphabet
+            
+            // On regarde si chaque caractère du mot saisi appartient au tableau des voyelles.
+            // Si c'est le cas, on incrémente de 1 le nombre de voyelles
             foreach (var c in s)
                 if (voyelle.Contains(c)) nbVoy++;
+
+            // Le nombre de consonnes est déduit à partir du nombre de voyelles et du nombre de caractères du mot saisi
             nbCons = s.Length - nbVoy;
         }
     }

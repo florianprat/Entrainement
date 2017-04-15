@@ -17,7 +17,7 @@ namespace PGCD
             ConsoleKeyInfo touche = new ConsoleKeyInfo();
             do
             {
-                // Affichage en couleur d'une brève description du projet
+                // Affichage en couleur d'une brève description du programme
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Calcul du PGCD de deux nombres entiers non nuls");
                 Console.ResetColor();
@@ -27,6 +27,8 @@ namespace PGCD
                 // Si la saisie est invalide, une nouvelle saisie est demandée.
                 bool testSaisie = false;
                 string s = string.Empty;
+
+                // On test la validité de la saisie avant sa conversion en un entier.
                 while (!testSaisie)
                 {
                     Console.WriteLine("\nEntrez le premier nombre :");
@@ -53,6 +55,7 @@ namespace PGCD
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\nAppuyer sur Espace pour lancer un nouveau calcul\nOu Echap pour quitter l'application.");
                 Console.ResetColor();
+                // L'appui sur d'autres touches ne fait rien.
                 do
                 {
                     touche = Console.ReadKey(true);
@@ -61,11 +64,11 @@ namespace PGCD
 
                 Console.Clear();
             }
-            while (touche.Key != ConsoleKey.Escape);
+            while (touche.Key != ConsoleKey.Escape);        // La touche Echap permet de sortir du programme
         }
 
         // Vérification de la validité de la saisie des nombres
-        // La méthode renvoi un booléen (true si valide)
+        // La méthode renvoie un booléen (true si valide).
         static bool ValiderSaisie(string s)
         {
             try

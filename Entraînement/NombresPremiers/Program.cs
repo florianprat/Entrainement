@@ -15,6 +15,7 @@ namespace NombresPremiers
         static void Main(string[] args)
         {
             // Saisie du nombre N de nombres premiers à afficher
+            // On ne fait pas de vérification de la saisie
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Ce programme permet de calculer et afficher les N premiers nombres premiers");
             Console.ResetColor();
@@ -36,7 +37,7 @@ namespace NombresPremiers
             int nbrTesté = 3;            // Nombre testé
             int diviseur;                // Nombre par lequel le nombre testé est divisé
             bool estPremier;             // Indique si le nombre est premier (true) ou non (false)
-            string res = "\n - 2";            // Chaîne concaténant les nombres premiers
+            string res = "\n - 2";       // Chaîne concaténant les nombres premiers
 
             while(compteur < nbr)
             {
@@ -45,10 +46,14 @@ namespace NombresPremiers
                 
                 while (diviseur < nbrTesté / 2 && estPremier)
                 {
+                    // Si le reste de la division (nbrTesté / diviseur) est nul, alors nbrTesté est un multiple de diviseur.
+                    // Dans ce cas, nbrTesté n'est pas un nombre premier.
                     if (nbrTesté % diviseur == 0) estPremier = false;
-                    else diviseur = diviseur + 2;
+                    else diviseur += 2;     // On ne considère que les nombres impairs
                 }
 
+                // Si le nombre est premier, on l'ajoute dans la chaîne de caractères qui sera retournée et
+                // on incrémente de 1 le compteur.
                 if (estPremier)
                 {
                     res += "\n - " + nbrTesté;        
