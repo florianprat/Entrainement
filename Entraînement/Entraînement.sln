@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriTableau", "TriTableau\Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{1B72FBD9-7678-4624-BD18-24196EFACB0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelevésMétéo", "RelevésMétéo\RelevésMétéo.csproj", "{0EDCF5A4-E607-4A63-810C-3D42B3846763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExplorateurFichiers", "ExplorateurFichiers\ExplorateurFichiers.csproj", "{1039A87E-0CCA-46C0-8AE6-EC3084DD1A03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{1B72FBD9-7678-4624-BD18-24196EFACB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B72FBD9-7678-4624-BD18-24196EFACB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B72FBD9-7678-4624-BD18-24196EFACB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDCF5A4-E607-4A63-810C-3D42B3846763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDCF5A4-E607-4A63-810C-3D42B3846763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDCF5A4-E607-4A63-810C-3D42B3846763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDCF5A4-E607-4A63-810C-3D42B3846763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1039A87E-0CCA-46C0-8AE6-EC3084DD1A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1039A87E-0CCA-46C0-8AE6-EC3084DD1A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1039A87E-0CCA-46C0-8AE6-EC3084DD1A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1039A87E-0CCA-46C0-8AE6-EC3084DD1A03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

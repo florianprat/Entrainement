@@ -8,9 +8,9 @@ namespace PGCD
 {
     class Program
     {
-        //
-        // Ce programme permet de calculer le plus grand dénominateur commun (PGCD) de deux nombres entiers non nuls.
-        //
+        /******************************************************************************************************************
+         * Ce programme permet de calculer le plus grand dénominateur commun (PGCD) de deux nombres entiers non nuls.
+         ******************************************************************************************************************/
 
         static void Main(string[] args)
         {

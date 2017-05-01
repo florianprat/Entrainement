@@ -8,9 +8,9 @@ namespace TriTableau
 {
     class Program
     {
-        //
-        // Ce programme permet de trier un tableau de mots par ordre alphabétique selon la méthode du tri à bulle.
-        //
+        /****************************************************************************************************************
+         * Ce programme permet de trier un tableau de mots par ordre alphabétique selon la méthode du tri à bulle.
+         ****************************************************************************************************************/
 
         static void Main(string[] args)
         {

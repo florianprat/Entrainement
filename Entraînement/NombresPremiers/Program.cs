@@ -8,9 +8,9 @@ namespace NombresPremiers
 {
     class Program
     {
-        //
-        // Ce programme permet de calculer et afficher les N premiers nombres premiers.
-        //
+        /*****************************************************************************************
+         * Ce programme permet de calculer et afficher les N premiers nombres premiers.
+         *****************************************************************************************/
 
         static void Main(string[] args)
         {
@@ -39,11 +39,11 @@ namespace NombresPremiers
             bool estPremier;             // Indique si le nombre est premier (true) ou non (false)
             string res = "\n - 2";       // Chaîne concaténant les nombres premiers
 
-            while(compteur < nbr)
+            while (compteur < nbr)
             {
                 diviseur = 3;
                 estPremier = true;
-                
+
                 while (diviseur < nbrTesté / 2 && estPremier)
                 {
                     // Si le reste de la division (nbrTesté / diviseur) est nul, alors nbrTesté est un multiple de diviseur.
@@ -56,7 +56,7 @@ namespace NombresPremiers
                 // on incrémente de 1 le compteur.
                 if (estPremier)
                 {
-                    res += "\n - " + nbrTesté;        
+                    res += "\n - " + nbrTesté;
                     compteur++;
                 }
 

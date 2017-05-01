@@ -8,30 +8,43 @@ namespace Login
 {
     class Program
     {
-        //
-        // Ce programme permet de saisir un login et un mot de passe lors de la création d'un compte.
-        //
+        /***************************************************************************************************************
+         * Ce programme permet de saisir un login et un mot de passe lors de la création d'un compte.
+         ***************************************************************************************************************/
 
         static void Main(string[] args)
         {
+            // Dimensionnement de la fenêtre de console.
+            Console.SetWindowSize(100, 20);
+
             // Saisie du login et vérification de sa validité
             bool loginValide = false;
             string saisieLogin = string.Empty;
 
+            Console.WriteLine("Veuillez saisir un identifiant :");
+
+            // La demande de login est répétée tant que le login n'est pas valide.
             while (!loginValide)
             {
-                Console.WriteLine("Veuillez saisir un identifiant :");
                 try
                 {
+                    // Petite manoeuvre pour effacer la ligne où on saisit le login.
+                    // Cela permet d'effacer le précédent login saisi si celui-ci n'a pas réussi le test de validité.
+                    Console.Write(new string(' ', Console.BufferWidth - 1));
+                    Console.SetCursorPosition(0, Console.CursorTop);
+
                     saisieLogin = Console.ReadLine();
-                    ValiderLogin(saisieLogin);
+                    ValiderLogin(saisieLogin);      // Test de la validité du login
                     loginValide = true;
                 }
-                catch (Exception e)
+                catch (FormatException e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n" + e.Message);
                     Console.ResetColor();
+
+                    // On repositionne le curseur à gauche de la console, juste en dessous de l'invite de saisie.
+                    Console.SetCursorPosition(0, 1);
                 }
             }
 
@@ -40,13 +53,23 @@ namespace Login
             string saisieMdp = string.Empty;
             ConsoleKeyInfo touche;
 
-            Console.WriteLine();
+            // On positionne le curseur et on efface le contenu de la ligne au cas où.
+            Console.SetCursorPosition(0, 3);
+            Console.Write(new string(' ', Console.BufferWidth - 1));
+            Console.SetCursorPosition(0, Console.CursorTop);
 
+            Console.WriteLine("Veuillez saisir un mot de passe :");
+
+            // La demande de mot de passe est répétée tant le mot de passe n'est pas valide.
             while (!mdpValide)
             {
-                Console.WriteLine("Veuillez saisir un mot de passe :");
+                // On repositionne le curseur à gauche de la console, juste en dessous de l'invite de saisie.
+                // Et on efface la ligne courante au cas où celle-ci est remplie.
+                Console.Write(new string(' ', Console.BufferWidth - 1));
+                Console.SetCursorPosition(0, Console.CursorTop);
 
                 // On fait en sorte que la saisie soit sécurisée (on ne voit pas ce que tape l'utilisateur).
+                saisieMdp = string.Empty;   // RAZ de saisieMdp
                 do
                 {
                     touche = Console.ReadKey(true);
@@ -57,7 +80,7 @@ namespace Login
 
                 try
                 {
-                    ValiderMdp(saisieMdp);
+                    ValiderMdp(saisieMdp);      // Test de la validité du mot de passe
                     mdpValide = true;
                 }
                 catch (Exception e)
@@ -65,12 +88,18 @@ namespace Login
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n" + e.Message);
                     Console.ResetColor();
+
+                    // On repositionne le curseur à gauche de la console, juste en dessous de l'invite de saisie.
+                    Console.SetCursorPosition(0, 4);
                 }
             }
 
             // Message de création du compte
+            Console.SetCursorPosition(0, 6);
+            Console.Write(new string(' ', Console.BufferWidth - 1));
+            Console.SetCursorPosition(0, Console.CursorTop);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\n\nVotre compte a bien été créé. Un message vient de vous être envoyé.");
+            Console.WriteLine("Votre compte a bien été créé. Un message vient de vous être envoyé.");
             Console.ResetColor();
 
             // Affichage des saisies pour vérification
@@ -101,12 +130,12 @@ namespace Login
 
             // Le mot de passe doit comporter au moins 6 caractères.
             if (mdp.Length < 6)
-                throw new FormatException("Le mot de passe doit comporter au moins 6 caractères, dont au moins 1 lettre et 1 chiffre.");
+                throw new FormatException("\nLe mot de passe doit comporter au moins 6 caractères, dont au moins 1 lettre et 1 chiffre.");
 
             foreach (var c in mdp)
             {
                 // On accède au code ASCII du caractère courant.
-                UInt16 codeASCII = Convert.ToUInt16(c);
+                Int16 codeASCII = Convert.ToInt16(c);
 
                 // Si le caractère courant est un chiffre, auMoinsUnChiffre passe true.
                 if (codeASCII > 48 && codeASCII < 57) auMoinsUnChiffre = true;
